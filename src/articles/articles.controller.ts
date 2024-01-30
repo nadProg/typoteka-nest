@@ -9,6 +9,7 @@ import {
   Query,
   HttpException,
   HttpStatus,
+  HttpCode,
 } from '@nestjs/common';
 import {
   CreateArticleDto,
@@ -75,6 +76,7 @@ export class ArticlesController {
   }
 
   @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   async delete(@Param('id') id: string): Promise<void> {
     console.log(`Delete article by id = ${id}`);
     const deletedArticle = await this.articlesService.delete(id);

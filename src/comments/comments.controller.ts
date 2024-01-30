@@ -5,6 +5,7 @@ import {
   Get,
   HttpException,
   HttpStatus,
+  HttpCode,
   Param,
   Post,
 } from '@nestjs/common';
@@ -30,6 +31,7 @@ export class CommentsController {
   }
 
   @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   async delete(@Param('id') id: string): Promise<void> {
     console.log(`Delete comment by id = ${id}`);
 
