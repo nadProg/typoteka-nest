@@ -1,10 +1,24 @@
-import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Body,
+  Query,
+} from '@nestjs/common';
+import {
+  CreateArticleDto,
+  FindAllArticlesParams,
+  UpdateArticleDto,
+} from './dto/articles.dto';
 
 @Controller('articles')
 export class ArticlesController {
   @Get()
-  async findAll() {
-    console.log('Find all articles');
+  async findAll(@Query() findAllArticlesParams: FindAllArticlesParams) {
+    console.log(`Find all articles with ${findAllArticlesParams}`);
   }
 
   @Get(':id')
@@ -13,13 +27,16 @@ export class ArticlesController {
   }
 
   @Post()
-  async create() {
-    console.log('Create article');
+  async create(@Body() createArticleDto: CreateArticleDto) {
+    console.log(`Create article with ${createArticleDto}`);
   }
 
   @Put(':id')
-  async update(@Param('id') id: string) {
-    console.log(`Update article by id = ${id}`);
+  async update(
+    @Param('id') id: string,
+    @Body() updateArticleDto: UpdateArticleDto,
+  ) {
+    console.log(`Update article by id = ${id} with ${updateArticleDto}`);
   }
 
   @Delete(':id')
