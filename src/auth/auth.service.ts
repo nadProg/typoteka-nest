@@ -6,7 +6,7 @@ import { AuthToken } from './auth.model';
 export class AuthService {
   async signIn(signInDto: SignInDto): Promise<AuthToken> {
     return {
-      userId: Date.now().toString(),
+      userId: Date.now(),
       token: signInDto.email,
     };
   }
