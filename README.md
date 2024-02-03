@@ -45,6 +45,19 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Environment variables
+
+`.env` file in the project root must contain the following environment variables:
+
+```bash
+POSTGRES_HOST
+POSTGRES_PORT
+POSTGRES_USERNAME
+POSTGRES_PASSWORD
+POSTGRES_DATABASE
+ADMINER_PORT
+```
+
 ## Test
 
 ```bash

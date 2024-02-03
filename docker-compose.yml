@@ -5,13 +5,13 @@ services:
     container_name: typoteka-nest-postgres
     restart: always
     ports:
-      - "${POSTGRES_EXTERNAL_PORT}:5432"
+      - "${POSTGRES_PORT}:5432"
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_USER: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
   adminer:
     image: adminer
     container_name: typoteka-nest-adminer
     restart: always
     ports:
-      - "${ADMINER_EXTERNAL_PORT}:8080"
+      - "${ADMINER_PORT}:8080"
