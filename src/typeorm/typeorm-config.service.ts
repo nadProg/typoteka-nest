@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
-import { UserEntity } from '../users/entities/user.entity';
+import { User } from '../users/entities/user';
+import { Category } from '../categories/entities/category';
 
 @Injectable()
 export class TypeOrmConfigService implements TypeOrmOptionsFactory {
@@ -11,11 +12,11 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
     return {
       type: 'postgres',
       host: this.configService.get('POSTGRES_HOST'),
-      port: +this.configService.get('DB_PORT', 5432),
+      port: +this.configService.get('POSTGRES_PORT', 5432),
       username: this.configService.get('POSTGRES_USERNAME'),
       password: this.configService.get('POSTGRES_PASSWORD'),
       database: this.configService.get('POSTGRES_DATABASE'),
-      entities: [UserEntity],
+      entities: [Category, User],
       synchronize: true,
     };
   }
