@@ -4,6 +4,7 @@ import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 import { User } from '../users/entities/user.entities';
 import { Category } from '../categories/entities/category';
 import { Comment } from '../comments/entities/comment.entity';
+import { Article } from '../articles/entities/article.entity';
 
 @Injectable()
 export class TypeOrmConfigService implements TypeOrmOptionsFactory {
@@ -17,7 +18,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       username: this.configService.get('POSTGRES_USERNAME'),
       password: this.configService.get('POSTGRES_PASSWORD'),
       database: this.configService.get('POSTGRES_DATABASE'),
-      entities: [Category, User, Comment],
+      entities: [Category, User, Article, Comment],
       synchronize: true,
     };
   }
