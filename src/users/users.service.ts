@@ -1,17 +1,24 @@
+import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/users.dto';
-import { UserModel } from './users.model';
+import { InjectRepository } from '@nestjs/typeorm';
+import { User } from './entities/user.entities';
+import { CreateUserDto } from './dto/create-user.dto';
 
 @Injectable()
 export class UsersService {
-  async create(createUserDto: CreateUserDto): Promise<UserModel> {
-    return {
-      id: Date.now().toString(),
+  constructor(
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
+  ) {}
+
+  async create(createUserDto: CreateUserDto): Promise<User> {
+    const user = this.usersRepository.create({
       email: createUserDto.email,
       firstName: createUserDto.firstName,
       lastName: createUserDto.lastName,
-      passwordHash: createUserDto.password,
-      createdAt: new Date().toISOString(),
-    };
+      passwordHash: createUserDto.password, // todo: add hash,
+    });
+
+    return this.usersRepository.save(user);
   }
 }
