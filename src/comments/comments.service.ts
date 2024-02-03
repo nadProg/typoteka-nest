@@ -1,27 +1,33 @@
+import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
-import { CreateCommentDto } from './dto/comments.dto';
-import { CommentModel } from './comments.model';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Comment } from './entities/comment.entity';
+import { CreateCommentDto } from './dto/create-comment.dto';
 
 @Injectable()
 export class CommentsService {
-  async findAll(): Promise<CommentModel[]> {
-    return [];
+  constructor(
+    @InjectRepository(Comment) private commentsRepository: Repository<Comment>,
+  ) {}
+
+  async findAll(): Promise<Comment[]> {
+    return this.commentsRepository.find();
   }
 
-  async findById(id: string): Promise<CommentModel | null> {
-    const comments = await this.findAll();
-
-    return comments.find((comment) => comment.id === id) ?? null;
+  async findById(id: number): Promise<Comment | null> {
+    return this.commentsRepository.findOneOrFail({
+      where: {
+        id,
+      },
+    });
   }
 
-  async create(createCommentDro: CreateCommentDto): Promise<CommentModel> {
-    return {
-      id: Date.now().toString(),
-      content: createCommentDro.content,
-    };
+  async create(createCommentDto: CreateCommentDto): Promise<Comment> {
+    const comment = this.commentsRepository.create(createCommentDto);
+    return this.commentsRepository.save(comment);
   }
 
-  async delete(id: string): Promise<CommentModel | null> {
-    return this.findById(id);
+  async delete(id: number): Promise<boolean> {
+    return !!(await this.commentsRepository.delete(id)).affected;
   }
 }

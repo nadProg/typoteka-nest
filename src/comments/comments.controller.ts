@@ -3,45 +3,34 @@ import {
   Controller,
   Delete,
   Get,
-  HttpException,
   HttpStatus,
   HttpCode,
   Param,
   Post,
+  NotFoundException,
 } from '@nestjs/common';
-import { CreateCommentDto } from './dto/comments.dto';
+import { CreateCommentDto } from './dto/create-comment.dto';
 import { CommentsService } from './comments.service';
-import { CommentModel } from './comments.model';
+import { Comment } from './entities/comment.entity';
 
 @Controller('comments')
 export class CommentsController {
   constructor(private commentsService: CommentsService) {}
   @Get()
-  async findAll(): Promise<CommentModel[]> {
-    console.log('Find all comments');
+  async findAll(): Promise<Comment[]> {
     return this.commentsService.findAll();
   }
 
   @Post()
-  async create(
-    @Body() createCommentDto: CreateCommentDto,
-  ): Promise<CommentModel> {
-    console.log(`Create comment with ${createCommentDto}`);
+  async create(@Body() createCommentDto: CreateCommentDto): Promise<Comment> {
     return this.commentsService.create(createCommentDto);
   }
 
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  async delete(@Param('id') id: string): Promise<void> {
-    console.log(`Delete comment by id = ${id}`);
-
-    const deletedComment = await this.commentsService.delete(id);
-
-    if (!deletedComment) {
-      throw new HttpException(
-        `Comment with id = ${id} not found`,
-        HttpStatus.NOT_FOUND,
-      );
+  async delete(@Param('id') id: number): Promise<void> {
+    if (!(await this.commentsService.delete(id))) {
+      throw new NotFoundException();
     }
   }
 }
