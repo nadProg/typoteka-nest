@@ -25,7 +25,7 @@ export class CategoriesService {
     id: number,
     updateCategoryDto: UpdateCategoryDto,
   ): Promise<Category | null> {
-    const category = this.categoriesRepository.preload({ id });
+    const category = await this.categoriesRepository.preload({ id });
 
     if (!category) {
       return null;

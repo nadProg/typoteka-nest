@@ -34,11 +34,11 @@ export class CategoriesController {
   @Put(':id')
   async update(
     @Param('id') id: number,
-    @Body() updateCategoryDro: UpdateCategoryDto,
+    @Body() updateCategoryDto: UpdateCategoryDto,
   ): Promise<Category> {
     const updatedCategory = await this.categoriesService.update(
       id,
-      updateCategoryDro,
+      updateCategoryDto,
     );
 
     if (!updatedCategory) {
