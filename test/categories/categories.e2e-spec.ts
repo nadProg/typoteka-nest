@@ -1,33 +1,24 @@
+import { Repository } from 'typeorm';
 import { HttpStatus, INestApplication } from '@nestjs/common';
-import { Test, TestingModule } from '@nestjs/testing';
 import { App } from 'supertest/types';
 import * as request from 'supertest';
-import { CategoriesModule } from '../../src/categories/categories.module';
-import { TypeormTestingModule } from '../../src/typeorm/typeorm-testing.module';
-import { GlobalValidationPipe } from '../../src/global/validation.pipe';
+
+import { Category } from '../../src/categories/entities/category';
+
+import { resetDataset } from './helpers/reset-dataset';
+import { populateDataset } from './helpers/populate-dataset';
+import { initCategoriesTestingModule } from './helpers/init-categories-testing-module';
 
 describe('Categories module (e2e)', () => {
   let app: INestApplication;
   let server: App;
+  let categoriesRepository: Repository<Category>;
 
   beforeAll(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [CategoriesModule, TypeormTestingModule],
-    }).compile();
+    ({ app, server, categoriesRepository } =
+      await initCategoriesTestingModule());
 
-    app = moduleFixture.createNestApplication();
-
-    app.useGlobalPipes(GlobalValidationPipe);
-
-    await app.init();
-
-    server = app.getHttpServer();
-  });
-
-  describe('/categories (GET)', () => {
-    it('should return categories', () => {
-      request(server).get('/categories').expect(HttpStatus.OK).expect([]);
-    });
+    await populateDataset({ categoriesRepository });
   });
 
   describe('/categories (POST)', () => {
@@ -208,7 +199,8 @@ describe('Categories module (e2e)', () => {
     });
   });
 
-  afterAll(() => {
-    app.close();
+  afterAll(async () => {
+    await resetDataset({ categoriesRepository });
+    await app.close();
   });
 });
