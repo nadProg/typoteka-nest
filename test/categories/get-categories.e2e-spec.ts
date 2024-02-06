@@ -31,14 +31,8 @@ describe('Categories module (e2e)', () => {
 
     it('should return categories from repository', () => {
       expect(response.body).toEqual([
-        {
-          id: 1,
-          name: 'category 1',
-        },
-        {
-          id: 2,
-          name: 'category 2',
-        },
+        { id: 1, name: 'category 1' },
+        { id: 2, name: 'category 2' },
       ]);
     });
   });
