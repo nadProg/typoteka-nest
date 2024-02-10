@@ -3,7 +3,7 @@ import { HttpStatus, INestApplication } from '@nestjs/common';
 import { App } from 'supertest/types';
 import * as request from 'supertest';
 
-import { Category } from '../../src/categories/entities/category';
+import { Category } from '../../src/categories/entities/category.entity';
 
 import { resetDataset } from './helpers/reset-dataset';
 import { populateDataset } from './helpers/populate-dataset';

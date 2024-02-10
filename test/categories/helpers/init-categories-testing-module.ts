@@ -5,7 +5,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import { getCategoriesRepository } from '../../helpers/get-categories-repository';
 
-import { Category } from '../../../src/categories/entities/category';
+import { Category } from '../../../src/categories/entities/category.entity';
 import { CategoriesModule } from '../../../src/categories/categories.module';
 import { GlobalValidationPipe } from '../../../src/global/validation.pipe';
 import { TypeormTestingModule } from '../../../src/typeorm/typeorm-testing.module';

@@ -2,7 +2,7 @@ import { NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { CategoriesController } from './categories.controller';
 import { CategoriesService } from './categories.service';
-import type { Category } from './entities/category';
+import type { Category } from './entities/category.entity';
 import type { CreateCategoryDto } from './dto/create-category.dto';
 
 type MockModule<M> = Record<keyof M, jest.Mock>;

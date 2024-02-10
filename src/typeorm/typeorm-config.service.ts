@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 import { User } from '../users/entities/user.entities';
-import { Category } from '../categories/entities/category';
+import { Category } from '../categories/entities/category.entity';
 import { Comment } from '../comments/entities/comment.entity';
 import { Article } from '../articles/entities/article.entity';
 
