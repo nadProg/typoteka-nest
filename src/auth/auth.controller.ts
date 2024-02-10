@@ -8,7 +8,7 @@ export class AuthController {
   constructor(private authService: AuthService) {}
   @Post()
   async signIn(@Body() signInDto: SignInDto): Promise<AuthToken> {
-    console.log(`Sign in user with ${signInDto}`);
+    console.log(signInDto);
     return this.authService.signIn(signInDto);
   }
 }
