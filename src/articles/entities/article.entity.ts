@@ -8,26 +8,28 @@ export class Article {
   @Column({
     type: 'varchar',
     length: 250,
-    nullable: false,
   })
   title: string;
 
   @Column({
     type: 'varchar',
     length: 250,
-    nullable: false,
   })
   announce: string;
 
   @Column({
     type: 'varchar',
     length: 1000,
+    nullable: true,
+    default: '',
   })
   content: string;
 
   @Column({
     type: 'varchar',
     length: 50,
+    nullable: true,
+    default: '',
   })
   image: string;
 }
