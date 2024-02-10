@@ -61,13 +61,13 @@ describe('Articles module (e2e)', () => {
       await populateDataset({ articlesRepository });
     });
 
-    describe('non existent category', () => {
+    describe('non existent article', () => {
       it('should return 404', async () => {
         const response = await request(server).delete('/articles/4');
         expect(response.statusCode).toBe(HttpStatus.NOT_FOUND);
       });
 
-      it('should not affect result returned by /categories (GET)', async () => {
+      it('should not affect result returned by /articles (GET)', async () => {
         const response = await request(server).get('/articles');
         expect(response.body).toEqual([
           {

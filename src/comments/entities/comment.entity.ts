@@ -8,7 +8,6 @@ export class Comment {
   @Column({
     type: 'varchar',
     length: 30,
-    nullable: false,
   })
   content: string;
 }

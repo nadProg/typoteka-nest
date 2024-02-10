@@ -24,7 +24,7 @@ describe('Articles module (e2e)', () => {
         await populateDataset({ articlesRepository });
       });
 
-      it('should create article with required fields only', async () => {
+      it('should update article with required fields only', async () => {
         const response = await request(server).put('/articles/1').send({
           title: 'updated article',
           announce: 'updated announce',
@@ -126,7 +126,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no updated categories should be returned by /articles (GET)', async () => {
+        it('no updated articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -163,7 +163,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no updated categories should be returned by /articles (GET)', async () => {
+        it('no updated articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.body).toEqual([
@@ -203,7 +203,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no updated categories should be returned by /articles (GET)', async () => {
+        it('no updated articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -244,7 +244,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no updated categories should be returned by /articles (GET)', async () => {
+        it('no updated articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -285,7 +285,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no updated categories should be returned by /articles (GET)', async () => {
+        it('no updated articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -326,7 +326,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no updated categories should be returned by /articles (GET)', async () => {
+        it('no updated articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -370,7 +370,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no updated categories should be returned by /articles (GET)', async () => {
+        it('no updated articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -414,7 +414,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no updated categories should be returned by /articles (GET)', async () => {
+        it('no updated articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -458,7 +458,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no updated categories should be returned by /articles (GET)', async () => {
+        it('no updated articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -502,7 +502,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no updated categories should be returned by /articles (GET)', async () => {
+        it('no updated articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);

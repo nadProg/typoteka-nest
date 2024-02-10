@@ -145,7 +145,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no created categories should be returned by /articles (GET)', async () => {
+        it('no created articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -182,7 +182,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no created categories should be returned by /articles (GET)', async () => {
+        it('no created articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.body).toEqual([
@@ -222,7 +222,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no created categories should be returned by /articles (GET)', async () => {
+        it('no created articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -263,7 +263,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no created categories should be returned by /articles (GET)', async () => {
+        it('no created articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -307,7 +307,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no created categories should be returned by /articles (GET)', async () => {
+        it('no created articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -351,7 +351,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no created categories should be returned by /articles (GET)', async () => {
+        it('no created articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -395,7 +395,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no created categories should be returned by /articles (GET)', async () => {
+        it('no created articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
@@ -439,7 +439,7 @@ describe('Articles module (e2e)', () => {
           expect(response.statusCode).toBe(HttpStatus.BAD_REQUEST);
         });
 
-        it('no created categories should be returned by /articles (GET)', async () => {
+        it('no created articles should be returned by /articles (GET)', async () => {
           const response = await request(server).get('/articles');
 
           expect(response.statusCode).toBe(HttpStatus.OK);
