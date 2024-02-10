@@ -1,6 +1,6 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Category } from '../categories/entities/category.entity';
-import { User } from '../users/entities/user.entities';
+import { User } from '../users/entities/user.entity';
 import { Article } from '../articles/entities/article.entity';
 import { Comment } from '../comments/entities/comment.entity';
 

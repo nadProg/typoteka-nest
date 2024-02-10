@@ -8,40 +8,39 @@ export class User {
   @Column({
     type: 'varchar',
     length: 255,
-    nullable: false,
   })
   firstName: string;
 
   @Column({
     type: 'varchar',
     length: 255,
-    nullable: false,
   })
   lastName: string;
 
   @Column({
     type: 'varchar',
     length: 255,
-    nullable: false,
+    unique: true,
   })
   email: string;
 
   @Column({
     type: 'varchar',
     length: 255,
-    nullable: false,
   })
   passwordHash: string;
 
   @Column({
     type: 'varchar',
     length: 255,
+    nullable: true,
+    default: '',
   })
   avatar: string;
 
   @Column({
     type: 'boolean',
-    nullable: false,
+    nullable: true,
     default: false,
   })
   isAdmin: boolean;
