@@ -39,6 +39,7 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: 'content',
             image: '',
+            categories: [],
           },
           {
             id: 3,
@@ -46,6 +47,7 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: '',
             image: '',
+            categories: [],
           },
         ]);
       });
@@ -76,6 +78,7 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: 'content',
             image: 'image',
+            categories: [],
           },
           {
             id: 2,
@@ -83,6 +86,7 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: 'content',
             image: '',
+            categories: [],
           },
           {
             id: 3,
@@ -90,6 +94,7 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: '',
             image: '',
+            categories: [],
           },
         ]);
       });

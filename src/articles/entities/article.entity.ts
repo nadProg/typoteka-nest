@@ -1,5 +1,13 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Comment } from '../../comments/entities/comment.entity';
+import { Category } from '../../categories/entities/category.entity';
 
 @Entity('articles')
 export class Article {
@@ -38,4 +46,12 @@ export class Article {
     eager: false,
   })
   comments: Comment;
+
+  @ManyToMany(() => Category, (category) => category.articles, { eager: true })
+  @JoinTable({
+    name: 'articles_categories',
+    joinColumn: { name: 'articleId', referencedColumnName: 'id' },
+    inverseJoinColumn: { name: 'categoryId', referencedColumnName: 'id' },
+  })
+  categories: Category[];
 }

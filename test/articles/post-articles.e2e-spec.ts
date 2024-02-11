@@ -89,13 +89,16 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: 'content',
             image: 'image',
+            categories: [],
           },
+
           {
             id: 2,
             title: 'article 2',
             announce: 'announce',
             content: 'content',
             image: '',
+            categories: [],
           },
           {
             id: 3,
@@ -103,6 +106,7 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: '',
             image: '',
+            categories: [],
           },
           {
             id: 4,
@@ -110,6 +114,7 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: 'content',
             image: 'image',
+            categories: [],
           },
           {
             id: 5,
@@ -117,6 +122,7 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: '',
             image: '',
+            categories: [],
           },
           {
             id: 6,
@@ -124,6 +130,7 @@ describe('Articles module (e2e)', () => {
             announce: new Array(250).fill('а').join(''),
             content: new Array(1000).fill('а').join(''),
             image: new Array(50).fill('а').join(''),
+            categories: [],
           },
         ]);
       });
@@ -156,6 +163,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: 'image',
+              categories: [],
             },
             {
               id: 2,
@@ -163,6 +171,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: '',
+              categories: [],
             },
             {
               id: 3,
@@ -170,6 +179,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: '',
               image: '',
+              categories: [],
             },
           ]);
         });
@@ -192,6 +202,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: 'image',
+              categories: [],
             },
             {
               id: 2,
@@ -199,6 +210,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: '',
+              categories: [],
             },
             {
               id: 3,
@@ -206,6 +218,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: '',
               image: '',
+              categories: [],
             },
           ]);
         });
@@ -233,6 +246,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: 'image',
+              categories: [],
             },
             {
               id: 2,
@@ -240,6 +254,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: '',
+              categories: [],
             },
             {
               id: 3,
@@ -247,6 +262,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: '',
               image: '',
+              categories: [],
             },
           ]);
         });
@@ -274,6 +290,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: 'image',
+              categories: [],
             },
             {
               id: 2,
@@ -281,6 +298,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: '',
+              categories: [],
             },
             {
               id: 3,
@@ -288,6 +306,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: '',
               image: '',
+              categories: [],
             },
           ]);
         });
@@ -318,6 +337,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: 'image',
+              categories: [],
             },
             {
               id: 2,
@@ -325,6 +345,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: '',
+              categories: [],
             },
             {
               id: 3,
@@ -332,6 +353,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: '',
               image: '',
+              categories: [],
             },
           ]);
         });
@@ -362,6 +384,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: 'image',
+              categories: [],
             },
             {
               id: 2,
@@ -369,6 +392,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: '',
+              categories: [],
             },
             {
               id: 3,
@@ -376,6 +400,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: '',
               image: '',
+              categories: [],
             },
           ]);
         });
@@ -406,6 +431,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: 'image',
+              categories: [],
             },
             {
               id: 2,
@@ -413,6 +439,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: '',
+              categories: [],
             },
             {
               id: 3,
@@ -420,6 +447,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: '',
               image: '',
+              categories: [],
             },
           ]);
         });
@@ -450,6 +478,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: 'image',
+              categories: [],
             },
             {
               id: 2,
@@ -457,6 +486,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: 'content',
               image: '',
+              categories: [],
             },
             {
               id: 3,
@@ -464,6 +494,7 @@ describe('Articles module (e2e)', () => {
               announce: 'announce',
               content: '',
               image: '',
+              categories: [],
             },
           ]);
         });

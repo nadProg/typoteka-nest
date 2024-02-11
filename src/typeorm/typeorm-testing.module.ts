@@ -7,8 +7,8 @@ import { Comment } from '../comments/entities/comment.entity';
 export const TypeormTestingModule = TypeOrmModule.forRoot({
   type: 'better-sqlite3',
   database: ':memory:',
-  dropSchema: true,
   entities: [Category, User, Article, Comment],
+  dropSchema: true,
   synchronize: true,
   logging: false,
 });

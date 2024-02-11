@@ -36,6 +36,7 @@ describe('Articles module (e2e)', () => {
           announce: 'announce',
           content: 'content',
           image: 'image',
+          categories: [],
         });
       });
     });
