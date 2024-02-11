@@ -20,6 +20,8 @@ export class Comment {
 
   @ManyToOne(() => Article, (article) => article.comments, {
     nullable: false,
+    onUpdate: 'CASCADE',
+    onDelete: 'CASCADE',
     eager: false,
   })
   @JoinColumn({

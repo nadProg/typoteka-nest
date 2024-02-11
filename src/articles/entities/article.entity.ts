@@ -34,6 +34,8 @@ export class Article {
   })
   image: string;
 
-  @OneToMany(() => Comment, (comment) => comment.article, { eager: false })
+  @OneToMany(() => Comment, (comment) => comment.article, {
+    eager: false,
+  })
   comments: Comment;
 }

@@ -83,6 +83,49 @@ describe('Comments module (e2e)', () => {
     });
   });
 
+  describe('cascade deletion by article', () => {
+    beforeAll(async () => {
+      await populateDataset({ commentsRepository, articlesRepository });
+    });
+
+    it('should return initial comments form the repository', async () => {
+      const response = await request(server).get('/comments');
+      expect(response.body).toEqual([
+        {
+          id: 1,
+          content: 'comment 1',
+          articleId: 1,
+        },
+        {
+          id: 2,
+          content: 'comment 2',
+          articleId: 2,
+        },
+      ]);
+    });
+
+    it('should delete article successfully', async () => {
+      const deleteResult = await articlesRepository.delete(1);
+
+      expect(deleteResult.affected).toBe(1);
+    });
+
+    it('deleted article comments should not be returned by /comments (GET)', async () => {
+      const response = await request(server).get('/comments');
+      expect(response.body).toEqual([
+        {
+          id: 2,
+          content: 'comment 2',
+          articleId: 2,
+        },
+      ]);
+    });
+
+    afterAll(async () => {
+      await resetDataset({ commentsRepository });
+    });
+  });
+
   afterAll(async () => {
     await app.close();
   });
