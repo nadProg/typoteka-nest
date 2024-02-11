@@ -17,10 +17,8 @@ export class ArticlesService {
   }
 
   async findById(id: number): Promise<Article | null> {
-    return await this.articlesRepository.findOne({
-      where: {
-        id,
-      },
+    return await this.articlesRepository.findOneBy({
+      id,
     });
   }
 

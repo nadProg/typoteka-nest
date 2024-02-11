@@ -15,15 +15,14 @@ export class CommentsService {
   }
 
   async findById(id: number): Promise<Comment | null> {
-    return this.commentsRepository.findOneOrFail({
-      where: {
-        id,
-      },
+    return this.commentsRepository.findOneBy({
+      id,
     });
   }
 
   async create(createCommentDto: CreateCommentDto): Promise<Comment> {
     const comment = this.commentsRepository.create(createCommentDto);
+
     return this.commentsRepository.save(comment);
   }
 

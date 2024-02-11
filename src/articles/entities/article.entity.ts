@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Comment } from '../../comments/entities/comment.entity';
 
 @Entity('articles')
 export class Article {
@@ -32,4 +33,7 @@ export class Article {
     default: '',
   })
   image: string;
+
+  @OneToMany(() => Comment, (comment) => comment.article, { eager: false })
+  comments: Comment;
 }
