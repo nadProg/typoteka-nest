@@ -11,6 +11,7 @@ import {
   HttpCode,
   NotFoundException,
 } from '@nestjs/common';
+import { CategoriesService } from '../categories/categories.service';
 import { Article } from './entities/article.entity';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
@@ -19,7 +20,10 @@ import { ArticlesService } from './articles.service';
 
 @Controller('articles')
 export class ArticlesController {
-  constructor(private articlesService: ArticlesService) {}
+  constructor(
+    private articlesService: ArticlesService,
+    private categoriesService: CategoriesService,
+  ) {}
 
   @Get()
   async findAll(

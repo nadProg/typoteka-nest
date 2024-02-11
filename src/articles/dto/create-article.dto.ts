@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsOptional, MaxLength } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsOptional, MaxLength } from 'class-validator';
 
 export class CreateArticleDto {
   @IsNotEmpty()
@@ -8,6 +8,10 @@ export class CreateArticleDto {
   @IsNotEmpty()
   @MaxLength(250)
   announce: string;
+
+  @IsNotEmpty()
+  @IsNumber({}, { each: true })
+  categories: number[];
 
   @IsOptional()
   @MaxLength(1000)

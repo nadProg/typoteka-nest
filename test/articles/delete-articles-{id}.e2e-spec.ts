@@ -4,6 +4,7 @@ import { App } from 'supertest/types';
 import * as request from 'supertest';
 
 import { Article } from '../../src/articles/entities/article.entity';
+import { Category } from '../../src/categories/entities/category.entity';
 
 import { resetDataset } from './helpers/reset-dataset';
 import { populateDataset } from './helpers/populate-dataset';
@@ -13,15 +14,17 @@ describe('Articles module (e2e)', () => {
   let app: INestApplication;
   let server: App;
   let articlesRepository: Repository<Article>;
+  let categoriesRepository: Repository<Category>;
 
   beforeAll(async () => {
-    ({ app, server, articlesRepository } = await initArticlesTestingModule());
+    ({ app, server, articlesRepository, categoriesRepository } =
+      await initArticlesTestingModule());
   });
 
   describe('/articles (DELETE)', () => {
     describe('valid cases', () => {
       beforeAll(async () => {
-        await populateDataset({ articlesRepository });
+        await populateDataset({ articlesRepository, categoriesRepository });
       });
 
       it('should return 204', async () => {
@@ -39,7 +42,12 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: 'content',
             image: '',
-            categories: [],
+            categories: [
+              {
+                id: 1,
+                name: 'category 1',
+              },
+            ],
           },
           {
             id: 3,
@@ -53,14 +61,14 @@ describe('Articles module (e2e)', () => {
       });
 
       afterAll(async () => {
-        await resetDataset({ articlesRepository });
+        await resetDataset({ articlesRepository, categoriesRepository });
       });
     });
   });
 
   describe('invalid cases', () => {
     beforeAll(async () => {
-      await populateDataset({ articlesRepository });
+      await populateDataset({ articlesRepository, categoriesRepository });
     });
 
     describe('non existent article', () => {
@@ -78,7 +86,20 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: 'content',
             image: 'image',
-            categories: [],
+            categories: [
+              {
+                id: 1,
+                name: 'category 1',
+              },
+              {
+                id: 3,
+                name: 'category 3',
+              },
+              {
+                id: 5,
+                name: 'category 5',
+              },
+            ],
           },
           {
             id: 2,
@@ -86,7 +107,12 @@ describe('Articles module (e2e)', () => {
             announce: 'announce',
             content: 'content',
             image: '',
-            categories: [],
+            categories: [
+              {
+                id: 1,
+                name: 'category 1',
+              },
+            ],
           },
           {
             id: 3,
@@ -101,7 +127,7 @@ describe('Articles module (e2e)', () => {
     });
 
     afterAll(async () => {
-      await resetDataset({ articlesRepository });
+      await resetDataset({ articlesRepository, categoriesRepository });
     });
   });
 

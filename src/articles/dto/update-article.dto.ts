@@ -1,4 +1,4 @@
-import { IsNotEmpty, Length, MaxLength } from 'class-validator';
+import { IsNotEmpty, IsNumber, Length, MaxLength } from 'class-validator';
 
 export class UpdateArticleDto {
   @IsNotEmpty()
@@ -8,6 +8,10 @@ export class UpdateArticleDto {
   @IsNotEmpty()
   @MaxLength(250)
   announce: string;
+
+  @IsNotEmpty()
+  @IsNumber({}, { each: true })
+  categories: number[];
 
   @Length(0, 1000)
   content: string;

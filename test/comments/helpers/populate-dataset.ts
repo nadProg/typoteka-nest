@@ -11,7 +11,12 @@ export const populateDataset = async ({
   commentsRepository: Repository<Comment>;
   articlesRepository: Repository<Article>;
 }): Promise<void> => {
-  await articlesRepository.save(mockCreateArticleDtos);
+  for (const createArticleDto of mockCreateArticleDtos) {
+    await articlesRepository.save({
+      ...createArticleDto,
+      categories: [],
+    });
+  }
 
   await commentsRepository.save(mockCreateCommentDtos);
 };

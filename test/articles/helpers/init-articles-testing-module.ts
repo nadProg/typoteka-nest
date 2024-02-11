@@ -4,8 +4,10 @@ import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { getArticlesRepository } from '../../helpers/get-articles-repository';
+import { getCategoriesRepository } from '../../helpers/get-categories-repository';
 
 import { Article } from '../../../src/articles/entities/article.entity';
+import { Category } from '../../../src/categories/entities/category.entity';
 import { ArticlesModule } from '../../../src/articles/articles.module';
 import { GlobalValidationPipe } from '../../../src/global/validation.pipe';
 import { TypeormTestingModule } from '../../../src/typeorm/typeorm-testing.module';
@@ -14,6 +16,7 @@ type InitArticlesTestingModuleReturn = {
   app: INestApplication;
   server: App;
   articlesRepository: Repository<Article>;
+  categoriesRepository: Repository<Category>;
 };
 
 export const initArticlesTestingModule =
@@ -32,9 +35,12 @@ export const initArticlesTestingModule =
 
     const articlesRepository = getArticlesRepository(app);
 
+    const categoriesRepository = getCategoriesRepository(app);
+
     return {
       app,
       server,
       articlesRepository,
+      categoriesRepository,
     };
   };

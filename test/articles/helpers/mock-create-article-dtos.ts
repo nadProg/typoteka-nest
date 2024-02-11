@@ -6,14 +6,17 @@ export const mockCreateArticleDtos: CreateArticleDto[] = [
     content: 'content',
     announce: 'announce',
     image: 'image',
+    categories: [1, 3, 5],
   },
   {
     title: 'article 2',
     content: 'content',
     announce: 'announce',
+    categories: [1],
   },
   {
     title: 'article 3',
     announce: 'announce',
+    categories: [],
   },
 ];
